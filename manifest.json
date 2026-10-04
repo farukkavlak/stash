@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Stash",
+  "version": "0.1.0",
+  "description": "Sort years of saved X posts into categories, and remove the ones you no longer need.",
+  "minimum_chrome_version": "120",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Open your X bookmarks",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "permissions": ["storage", "unlimitedStorage"],
+  "host_permissions": ["https://abs.twimg.com/*"],
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*"],
+      "js": ["dist/x-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://x.com/*"],
+      "js": ["dist/content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

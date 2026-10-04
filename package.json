@@ -1,0 +1,25 @@
+{
+  "name": "stash",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sort years of saved X posts into categories, and remove the ones you no longer need",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild content=src/content.ts background=src/background.ts x-hook=src/platforms/x/hook.ts --bundle --format=iife --target=chrome120 --outdir=dist",
+    "watch": "npm run build -- --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/chrome": "^0.3.4",
+    "esbuild": "^0.24.0",
+    "eslint": "^10.12.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.71.0",
+    "vitest": "^4.1.11"
+  }
+}
