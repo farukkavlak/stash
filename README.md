@@ -7,6 +7,11 @@ Sort years of saved X posts into categories and remove the ones you don't need.
 Stash is a Chrome extension. It works inside X's bookmarks page, using the login you
 already have. No account, no API key, no server.
 
+<p align="center">
+  <img src="docs/demo.gif" width="720"
+       alt="Category tabs and a side panel appear on X's bookmarks page; a post is dragged into a category, two are sorted with number keys, and one is removed.">
+</p>
+
 ## Features
 
 - Category tabs under X's "Bookmarks / Likes" tabs
@@ -52,6 +57,9 @@ own page sends.
 npm run watch    rebuild on change
 npm run check    type check, lint, test, build
 ```
+
+The demo video is made with [Remotion](https://www.remotion.dev) in `video/`:
+`npm run render` writes `out/stash.mp4`, `npm run gif` updates `docs/demo.gif`.
 
 All X-specific code is in `src/platforms/x/`. X's internal API is not public, so when X
 changes it, that folder needs a fix.
